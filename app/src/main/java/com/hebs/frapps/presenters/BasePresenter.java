@@ -9,19 +9,17 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.widget.SearchView;
 
 import com.hebs.frapps.R;
-import com.hebs.frapps.models.TemasModel;
 import com.hebs.frapps.models.BusquedaModel;
+import com.hebs.frapps.models.TemasModel;
 import com.hebs.frapps.models.modelsRealm.ParBusqueda;
 import com.hebs.frapps.models.modelsRealm.Temas;
-import com.hebs.frapps.views.Activity_App_Detalle_;
-import com.hebs.frapps.views.Activity_Apps_Busqueda_;
-import com.hebs.frapps.views.Activity_Categorias_Detalle_;
+import com.hebs.frapps.views.Activity_Tema_Detalle_;
+import com.hebs.frapps.views.Activity_Temas_Busqueda_;
+import com.hebs.frapps.views.Activity_Temas_Generales_;
 import com.hebs.frapps.views.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import io.realm.RealmResults;
 
 
 //Clase general q tiene metodos comunes
@@ -51,19 +49,19 @@ public class BasePresenter {
 
 
     public static void irCategorias(Activity _context, String tag) {
-        Activity_Categorias_Detalle_.intent(_context).start();
+        Activity_Temas_Generales_.intent(_context).start();
         BaseActivity.setupWindowAnimations(_context);
 
 
     }
 
     private static void irBusquedaApp(Activity _context, String query) {
-        Activity_Apps_Busqueda_.intent(_context).nombreApp(query).start();
+        Activity_Temas_Busqueda_.intent(_context).nombreApp(query).start();
         BaseActivity.setupWindowAnimations(_context);
     }
 
     public static void irDetalleApp(Activity _context, int tag) {
-        Activity_App_Detalle_.intent(_context).idApp(tag).start();
+        Activity_Tema_Detalle_.intent(_context).idApp(tag).start();
         BaseActivity.setupWindowAnimations(_context);
 
 
@@ -100,7 +98,7 @@ public class BasePresenter {
                     //Ir a la pagina de busqueda de apps
                 } else {
                     //Le dio click a una app
-                    Activity_App_Detalle_.intent(get_view().getBaseContext()).idApp(_sugerencias.get(position).get_id()).flags(Intent.FLAG_ACTIVITY_NEW_TASK).start();
+                    Activity_Tema_Detalle_.intent(get_view().getBaseContext()).idApp(_sugerencias.get(position).get_id()).flags(Intent.FLAG_ACTIVITY_NEW_TASK).start();
                     ((Activity) get_view()).overridePendingTransition(0, 0); //0 for no animation
 
                     //Ir a la pagina de la app

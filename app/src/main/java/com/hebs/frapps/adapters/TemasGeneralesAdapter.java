@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class CategoriaDetalleAdapter extends RecyclerView.Adapter<RecyclerViewHolders> {
+public class TemasGeneralesAdapter extends RecyclerView.Adapter<RecyclerViewHolders> {
     private final Animation animFadeIn;
     public Activity _context;
     private ArrayList<Temas> mDataList;
@@ -33,7 +33,7 @@ public class CategoriaDetalleAdapter extends RecyclerView.Adapter<RecyclerViewHo
     private View _vista;
     private String categoria = "";
 
-    public CategoriaDetalleAdapter(Activity context, String categoria, ArrayList<Temas> data) {
+    public TemasGeneralesAdapter(Activity context, String categoria, ArrayList<Temas> data) {
         this._context = context;
         animFadeIn = AnimationUtils.loadAnimation(context, android.R.anim.fade_in);
         this.categoria = categoria;

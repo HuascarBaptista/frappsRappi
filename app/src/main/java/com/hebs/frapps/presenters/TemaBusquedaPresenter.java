@@ -6,12 +6,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.hebs.frapps.R;
-import com.hebs.frapps.adapters.CategoriaDetalleAdapter;
+import com.hebs.frapps.adapters.TemasGeneralesAdapter;
 import com.hebs.frapps.models.TemasModel;
 import com.hebs.frapps.models.modelsRealm.Temas;
 import com.hebs.frapps.utils.GridAutofitLayoutManager;
-import com.hebs.frapps.views.Activity_Apps_Busqueda;
-import com.hebs.frapps.views.FragmentCategoria;
+import com.hebs.frapps.views.Activity_Temas_Busqueda;
+import com.hebs.frapps.views.FragmentClasificacionTemas;
 import com.novoda.merlin.MerlinsBeard;
 
 import java.util.ArrayList;
@@ -19,27 +19,27 @@ import java.util.ArrayList;
 import io.realm.RealmResults;
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
-public class AppsBusquedaPresenter {
+public class TemaBusquedaPresenter {
 
-    private Activity_Apps_Busqueda _view;
+    private Activity_Temas_Busqueda _view;
     private MerlinsBeard merlinsBeard;
 
 
-    public AppsBusquedaPresenter(Activity_Apps_Busqueda view) {
+    public TemaBusquedaPresenter(Activity_Temas_Busqueda view) {
         this._view = view;
 
     }
 
-    public Activity_Apps_Busqueda get_view() {
+    public Activity_Temas_Busqueda get_view() {
         return _view;
     }
 
-    public void set_view(Activity_Apps_Busqueda _view) {
+    public void set_view(Activity_Temas_Busqueda _view) {
         this._view = _view;
     }
 
 
-    public void cargarDataFragment(View view, ArrayList<Temas> data, String categoria, FragmentCategoria _este) {
+    public void cargarDataFragment(View view, ArrayList<Temas> data, String categoria, FragmentClasificacionTemas _este) {
         _este.recyclerView.setHasFixedSize(true);
 
         //Si es tablet entonces grid si no entonces linear
@@ -60,7 +60,7 @@ public class AppsBusquedaPresenter {
 
         _este.recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        _este.recyclerAdapter = new CategoriaDetalleAdapter(_view,_este.getString(R.string.todas), data);
+        _este.recyclerAdapter = new TemasGeneralesAdapter(_view, _este.getString(R.string.todas), data);
         _este.recyclerView.setItemAnimator(new SlideInLeftAnimator());
 
         _este.recyclerView.setAdapter(_este.recyclerAdapter);
@@ -89,7 +89,7 @@ public class AppsBusquedaPresenter {
 
         get_view().recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        get_view().recyclerAdapter = new CategoriaDetalleAdapter(get_view(),get_view().getString(R.string.todas), data);
+        get_view().recyclerAdapter = new TemasGeneralesAdapter(get_view(), get_view().getString(R.string.todas), data);
         //Seteo la animacion
         get_view().recyclerView.setItemAnimator(new SlideInLeftAnimator());
 

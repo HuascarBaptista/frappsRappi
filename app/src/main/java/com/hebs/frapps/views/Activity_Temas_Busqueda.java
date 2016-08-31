@@ -1,7 +1,6 @@
 package com.hebs.frapps.views;
 
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
@@ -9,7 +8,7 @@ import android.widget.Toast;
 
 import com.hebs.frapps.R;
 import com.hebs.frapps.models.modelsRealm.Temas;
-import com.hebs.frapps.presenters.AppsBusquedaPresenter;
+import com.hebs.frapps.presenters.TemaBusquedaPresenter;
 import com.hebs.frapps.utils.MyShared_;
 
 import org.androidannotations.annotations.AfterViews;
@@ -25,8 +24,8 @@ import java.util.ArrayList;
 
 @Fullscreen
 @WindowFeature({Window.FEATURE_NO_TITLE})
-@EActivity(R.layout.activity_apps_busqueda)
-public class Activity_Apps_Busqueda extends BaseActivity {
+@EActivity(R.layout.activity_temas_busqueda)
+public class Activity_Temas_Busqueda extends BaseActivity {
 
     @ViewById(R.id.recyclerview)
     public RecyclerView recyclerView;
@@ -44,7 +43,7 @@ public class Activity_Apps_Busqueda extends BaseActivity {
     @Extra
     String nombreApp;
 
-    private AppsBusquedaPresenter appsBusquedaPresenter;
+    private TemaBusquedaPresenter temaBusquedaPresenter;
 
 
     @Override
@@ -71,7 +70,7 @@ public class Activity_Apps_Busqueda extends BaseActivity {
             finish();
         }
 
-        appsBusquedaPresenter = new AppsBusquedaPresenter(this);
+        temaBusquedaPresenter = new TemaBusquedaPresenter(this);
 
         super.setDrawer(drawer);
         super.cargarAppBar(true, nombreApp);
@@ -79,7 +78,7 @@ public class Activity_Apps_Busqueda extends BaseActivity {
         //  cargandoCustomDialog(true);
         _data = new ArrayList<>();
 
-        appsBusquedaPresenter.manejarInformacion(getBaseContext(), _data, nombreApp);
+        temaBusquedaPresenter.manejarInformacion(getBaseContext(), _data, nombreApp);
 
 
     }

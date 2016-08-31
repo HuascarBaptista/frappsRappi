@@ -2,13 +2,10 @@ package com.hebs.frapps.models;
 
 import android.content.Context;
 
-import com.hebs.frapps.models.UniversalModel;
 import com.hebs.frapps.models.modelsRealm.Temas;
-import com.hebs.frapps.models.modelsRealm.Temas;
-import com.hebs.frapps.views.Activity_App_Detalle;
+import com.hebs.frapps.views.Activity_Tema_Detalle;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import io.realm.Case;
 import io.realm.Realm;
@@ -123,7 +120,7 @@ public class TemasModel {
         return _Temas;
     }
 
-    public static Temas obtenerTemaPorIdNumerico(Activity_App_Detalle context, int idApp) {
+    public static Temas obtenerTemaPorIdNumerico(Activity_Tema_Detalle context, int idApp) {
         Realm realm = UniversalModel.crearConexion(context);
 
         Temas _resultado = realm.where(Temas.class).equalTo("_idNumerico", idApp).findFirst();

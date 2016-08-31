@@ -52,7 +52,7 @@ public class Activity_Splash extends Activity {
                     //Cuando se termina el splash cargo las categorias
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        Activity_Categorias_Detalle_.intent(getBaseContext()).flags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_NEW_TASK).start();
+                        Activity_Temas_Generales_.intent(getBaseContext()).flags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_NEW_TASK).start();
                         overridePendingTransition(0, 0); //0 for no animation
                         finish();
 

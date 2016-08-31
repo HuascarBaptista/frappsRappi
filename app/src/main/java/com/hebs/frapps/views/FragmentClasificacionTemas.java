@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.hebs.frapps.R;
 import com.hebs.frapps.models.modelsRealm.Temas;
-import com.hebs.frapps.presenters.CategoriasDetallePresenter;
+import com.hebs.frapps.presenters.TemasGeneralesPresenter;
 
 import org.androidannotations.annotations.EFragment;
 import org.parceler.Parcels;
@@ -21,21 +21,21 @@ import java.util.ArrayList;
 
 
 @EFragment
-public class FragmentCategoria extends Fragment {
+public class FragmentClasificacionTemas extends Fragment {
 
     public RecyclerView recyclerView;
     public RecyclerView.Adapter recyclerAdapter;
     private ArrayList<Temas> _data;
     private String _categoria;
-    private Activity_Categorias_Detalle _actividad;
-    private CategoriasDetallePresenter categoriasDetallePresenter;
+    private Activity_Temas_Generales _actividad;
+    private TemasGeneralesPresenter temasGeneralesPresenter;
 
-    public FragmentCategoria() {
+    public FragmentClasificacionTemas() {
         // Required empty public constructor
     }
 
-    public static FragmentCategoria newInstance(String _titulo, ArrayList<Temas> _apps) {
-        FragmentCategoria fragment = new FragmentCategoria();
+    public static FragmentClasificacionTemas newInstance(String _titulo, ArrayList<Temas> _apps) {
+        FragmentClasificacionTemas fragment = new FragmentClasificacionTemas();
         Bundle args = new Bundle();
         args.putString("Categoria", _titulo);
         args.putParcelable("Data", Parcels.wrap(_apps));
@@ -55,15 +55,15 @@ public class FragmentCategoria extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_categorias_detalle, container, false);
+        View view = inflater.inflate(R.layout.fragment_clasificacion_temas, container, false);
         Bundle args = getArguments();
         //Saco la data para mostrar
         _data = Parcels.unwrap((Parcelable) args.get("Data"));
         _categoria = (String) args.get("Categoria");
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
-        categoriasDetallePresenter = new CategoriasDetallePresenter(_actividad);
-        categoriasDetallePresenter.cargarDataFragment(_actividad, _data, _categoria, this);
+        temasGeneralesPresenter = new TemasGeneralesPresenter(_actividad);
+        temasGeneralesPresenter.cargarDataFragment(_actividad, _data, _categoria, this);
 
         return view;
     }
@@ -73,10 +73,10 @@ public class FragmentCategoria extends Fragment {
         super.onAttach(context);
 
         if (context instanceof Activity) {
-            _actividad = (Activity_Categorias_Detalle) context;
-            if (categoriasDetallePresenter != null) {
+            _actividad = (Activity_Temas_Generales) context;
+            if (temasGeneralesPresenter != null) {
 
-                categoriasDetallePresenter.set_view(_actividad);
+                temasGeneralesPresenter.set_view(_actividad);
             }
         }
 

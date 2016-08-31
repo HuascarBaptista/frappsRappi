@@ -1,6 +1,5 @@
 package com.hebs.frapps.presenters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,48 +8,45 @@ import android.widget.Toast;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.hebs.frapps.R;
-import com.hebs.frapps.adapters.CategoriaDetalleAdapter;
+import com.hebs.frapps.adapters.TemasGeneralesAdapter;
 import com.hebs.frapps.models.TemasModel;
 import com.hebs.frapps.models.modelsRealm.Temas;
 import com.hebs.frapps.utils.GridAutofitLayoutManager;
-import com.hebs.frapps.views.Activity_Categorias_Detalle;
-import com.hebs.frapps.views.FragmentCategoria;
+import com.hebs.frapps.views.Activity_Temas_Generales;
+import com.hebs.frapps.views.FragmentClasificacionTemas;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import com.novoda.merlin.MerlinsBeard;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 import jp.wasabeef.recyclerview.animators.LandingAnimator;
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
 //Este es el presentador de las categorias q se muestran en general, con las pestañas
-public class CategoriasDetallePresenter {
+public class TemasGeneralesPresenter {
 
-    private Activity_Categorias_Detalle _view;
+    private Activity_Temas_Generales _view;
     private MerlinsBeard merlinsBeard;
 
 
-    public CategoriasDetallePresenter(Activity_Categorias_Detalle view) {
+    public TemasGeneralesPresenter(Activity_Temas_Generales view) {
         this._view = view;
 
     }
 
 
-    public Activity_Categorias_Detalle get_view() {
+    public Activity_Temas_Generales get_view() {
         return _view;
     }
 
-    public void set_view(Activity_Categorias_Detalle _view) {
+    public void set_view(Activity_Temas_Generales _view) {
         this._view = _view;
     }
 
 
-    public void cargarDataFragment(Activity_Categorias_Detalle view, ArrayList<Temas> data, String categoria, FragmentCategoria _este) {
+    public void cargarDataFragment(Activity_Temas_Generales view, ArrayList<Temas> data, String categoria, FragmentClasificacionTemas _este) {
         _este.recyclerView.setHasFixedSize(true);
 
 
@@ -74,7 +70,7 @@ public class CategoriasDetallePresenter {
         }
 
 
-        _este.recyclerAdapter = new CategoriaDetalleAdapter(get_view(),categoria, data);
+        _este.recyclerAdapter = new TemasGeneralesAdapter(get_view(), categoria, data);
         _este.recyclerView.setAdapter(_este.recyclerAdapter);
 
     }

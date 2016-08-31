@@ -3,7 +3,6 @@ package com.hebs.frapps.views;
 import android.animation.Animator;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.DrawerLayout;
 import android.view.Window;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hebs.frapps.R;
-import com.hebs.frapps.presenters.AppDetallePresenter;
+import com.hebs.frapps.presenters.TemaDetallePresenter;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -23,8 +22,8 @@ import org.androidannotations.annotations.WindowFeature;
 
 @Fullscreen
 @WindowFeature({Window.FEATURE_NO_TITLE})
-@EActivity(R.layout.activity_detalle_app)
-public class Activity_App_Detalle extends BaseActivity {
+@EActivity(R.layout.activity_tema_detalle)
+public class Activity_Tema_Detalle extends BaseActivity {
 
     @ViewById
     ImageView icono_app;
@@ -43,7 +42,7 @@ public class Activity_App_Detalle extends BaseActivity {
     int idApp;
 
 
-    AppDetallePresenter appDetallePresenter;
+    TemaDetallePresenter temaDetallePresenter;
 
     @AfterViews
     public void cargarInformacionAppBar() {
@@ -51,9 +50,9 @@ public class Activity_App_Detalle extends BaseActivity {
         super.cargarAppBar(true, "");
 
         cargandoDialog(true);
-        appDetallePresenter = new AppDetallePresenter(this);
+        temaDetallePresenter = new TemaDetallePresenter(this);
         //Lleno toda la info y seteo los clicks
-        boolean _cargo = appDetallePresenter.llenarInformacion(idApp, titulo_app, icono_app, desarrollador_app, descripcion, compartir, url_app);
+        boolean _cargo = temaDetallePresenter.llenarInformacion(idApp, titulo_app, icono_app, desarrollador_app, descripcion, compartir, url_app);
         cargandoDialog(false);
 
         animarFloatingButton();

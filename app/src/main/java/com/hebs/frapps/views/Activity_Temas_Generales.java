@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
@@ -12,9 +11,9 @@ import android.widget.LinearLayout;
 
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
 import com.hebs.frapps.R;
-import com.hebs.frapps.adapters.CategoriasViewPagerAdapter;
+import com.hebs.frapps.adapters.TemasViewPagerAdapter;
 import com.hebs.frapps.models.modelsRealm.Temas;
-import com.hebs.frapps.presenters.CategoriasDetallePresenter;
+import com.hebs.frapps.presenters.TemasGeneralesPresenter;
 import com.hebs.frapps.utils.MyShared_;
 
 import org.androidannotations.annotations.AfterViews;
@@ -30,22 +29,11 @@ import java.util.HashMap;
 
 @Fullscreen
 @WindowFeature({Window.FEATURE_NO_TITLE})
-@EActivity(R.layout.activity_categorias_detalle)
-public class Activity_Categorias_Detalle extends BaseActivity {
+@EActivity(R.layout.activity_temas_generales)
+public class Activity_Temas_Generales extends BaseActivity {
 
 
     public RecyclerView.Adapter recyclerAdapter;
-
-    @ViewById
-    TabLayout appbartabs;
-
-    @ViewById(R.id.viewpager)
-    ViewPager viewPager;
-
-
-    ArrayList<String> _titulos;
-    HashMap<String, ArrayList<Temas>> _data;
-
     @StringRes(R.string.servicio_reddit)
     public
     String servicio_reddit;
@@ -53,14 +41,19 @@ public class Activity_Categorias_Detalle extends BaseActivity {
     public View vista_superior;
     @Pref
     public MyShared_ myPrefs;
-
+    @ViewById
+    TabLayout appbartabs;
+    @ViewById(R.id.viewpager)
+    ViewPager viewPager;
+    ArrayList<String> _titulos;
+    HashMap<String, ArrayList<Temas>> _data;
     @ViewById
     LinearLayout linear_actualizar;
     @ViewById
     AppBarLayout appbarLayout;
 
 
-    private CategoriasDetallePresenter categoriasDetallePresenter;
+    private TemasGeneralesPresenter temasGeneralesPresenter;
 
 
     @Override
@@ -83,9 +76,9 @@ public class Activity_Categorias_Detalle extends BaseActivity {
     }
 
     public void cargarInformacion() {
-        if (categoriasDetallePresenter == null)
-            categoriasDetallePresenter = new CategoriasDetallePresenter(this);
-        categoriasDetallePresenter.obtenerInformacion();
+        if (temasGeneralesPresenter == null)
+            temasGeneralesPresenter = new TemasGeneralesPresenter(this);
+        temasGeneralesPresenter.obtenerInformacion();
     }
 
     public void informacionActualizada(boolean data) {
@@ -109,19 +102,19 @@ public class Activity_Categorias_Detalle extends BaseActivity {
         _titulos = new ArrayList<>();
         _data = new HashMap<>();
 
-        categoriasDetallePresenter.manejarInformacion(getBaseContext(), _titulos, _data);
+        temasGeneralesPresenter.manejarInformacion(getBaseContext(), _titulos, _data);
         if (_titulos.size() > 0) {
             informacionActualizada(true);
 
 
             super.setDrawer(drawer);
-            super.cargarAppBar(false, getString(R.string.categorias));
+            super.cargarAppBar(false, getString(R.string.temas));
 
 
 
 
             //Sete el viewpager del los fragmnets
-            viewPager.setAdapter(new CategoriasViewPagerAdapter(
+            viewPager.setAdapter(new TemasViewPagerAdapter(
                     getSupportFragmentManager(), _titulos, _data));
 
             //La animacion del viewpager

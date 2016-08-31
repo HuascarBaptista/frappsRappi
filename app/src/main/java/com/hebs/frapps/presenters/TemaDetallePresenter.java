@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.hebs.frapps.R;
 import com.hebs.frapps.models.TemasModel;
 import com.hebs.frapps.models.modelsRealm.Temas;
-import com.hebs.frapps.views.Activity_App_Detalle;
+import com.hebs.frapps.views.Activity_Tema_Detalle;
 import com.koushikdutta.ion.Ion;
 import com.novoda.merlin.MerlinsBeard;
 
@@ -21,20 +21,20 @@ import org.ocpsoft.prettytime.PrettyTime;
 import java.util.Date;
 
 
-public class AppDetallePresenter {
-    private Activity_App_Detalle _view;
+public class TemaDetallePresenter {
+    private Activity_Tema_Detalle _view;
     private MerlinsBeard merlinsBeard;
 
-    public AppDetallePresenter(Activity_App_Detalle view) {
+    public TemaDetallePresenter(Activity_Tema_Detalle view) {
         this._view = view;
 
     }
 
-    public Activity_App_Detalle get_view() {
+    public Activity_Tema_Detalle get_view() {
         return _view;
     }
 
-    public void set_view(Activity_App_Detalle _view) {
+    public void set_view(Activity_Tema_Detalle _view) {
         this._view = _view;
     }
 
