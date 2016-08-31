@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Frapps</string>
+    <string name="servicio_reddit">https://www.reddit.com/reddits.json</string>
+    <string name="alimentandonos_de_informaci_n">Alimentandonos de información…</string>
+    <string name="visitar_p_gina_web">Visitar página web</string>
+    <string name="buscar">Buscar</string>
+    <string name="search_hint">Buscar tema</string>
+    <string name="categor_as">Categorías</string>
+    <string name="m_s_recientes">Recientes</string>
+    <string name="acerca">Acerca</string>
+    <string name="navigation_drawer_open">Abierto</string>
+    <string name="navigation_drawer_close">Cerrado</string>
+    <string name="compartirTexto">Encontré este tema %1$s gracias a ®Frapps. Visitala en: %2$s</string>
+    <string name="compartirPor">Compartir por</string>
+    <string name="aplicacion_invalida">Este tema es invalido</string>
+    <string name="servicio_no_emitio">El servicio no emitió respuesta alguna.</string>
+    <string name="servicio_error">Lo sentimos hubo un error en el servicio.</string>
+    <string name="sin_conexion">No posee conexión a internet.</string>
+    <string name="categorias">Categorías</string>
+    <string name="cargando">Cargando</string>
+    <string name="espere">Espere un momento por favor...</string>
+    <string name="todas">Todas</string>
+    <string name="ver_m_s">Ver más</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="participantes">Participantes</string>
+    <string name="participante">participante</string>
+    <string name="participantesM">participantes</string>
+    <string name="creado">Creado</string>
+    <string name="link_reddit">https://www.reddit.com</string>
+</resources>
