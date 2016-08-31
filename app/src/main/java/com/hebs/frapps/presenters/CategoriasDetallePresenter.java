@@ -175,7 +175,7 @@ public class CategoriasDetallePresenter {
 
                     }
                    
-                    if (_app.has("public_description") && !_app.get("public_description").isJsonNull()) {
+                    if (_app.has("public_description") && !_app.get("public_description").isJsonNull() && !_app.get("public_description").getAsString().equals("")) {
 
                         descripcion = _app.get("public_description").getAsString();
 
