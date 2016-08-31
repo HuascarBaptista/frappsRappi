@@ -102,7 +102,7 @@ public class TemasModel {
     public static ArrayList<Temas> temasOrdenadosFecha(Context context) {
         Realm realm = UniversalModel.crearConexion(context);
 
-        RealmResults<Temas> _resultado = realm.where(Temas.class).findAllSorted("_fechaCreacion");
+        RealmResults<Temas> _resultado = realm.where(Temas.class).findAllSorted("_fechaCreacion",Sort.DESCENDING);
         ArrayList<Temas> _Temas = new ArrayList<>();
         for (int i = 0; i < _resultado.size(); i++) {
             _Temas.add(_resultado.get(i));

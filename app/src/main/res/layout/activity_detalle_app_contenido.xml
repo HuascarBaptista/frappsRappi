@@ -61,7 +61,7 @@
                             android:layout_marginRight="10dp"
                             android:ellipsize="end"
                             android:lines="2"
-                            android:maxLength="20"
+                            android:maxLength="30"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:textColor="#333333"
                             android:textSize="@dimen/text_10" />
